@@ -15,18 +15,26 @@ Para utilizar a lib em um aplicativo de parceiro basta realizar a configuração
 
 deve ser adicionando a configuração do GitHubPackages
 
-```bash
+```java
+import java.io.File
+import java.util.Properties
+import java.io.FileInputStream
 
     repositories {
         google()
         mavenCentral()
         maven {
+            val githubProperties = Properties()
+            githubProperties.load(FileInputStream(File("github.properties")))
+            //obter as credenciais junto a phoebus
+            val gprUser = githubProperties.getProperty("USER") 
+            val token = githubProperties.getProperty("TOKEN")
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/paystore/pix-sdk")
 
             credentials {
-                username = "manoelneto83"
-                password = "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"
+                username = gprUser
+                password = token
             }
         }
 
