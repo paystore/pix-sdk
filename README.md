@@ -42,6 +42,12 @@ import java.io.FileInputStream
 }
 ```
 
+na raiz do projeto deve ser criado um arquivo chamado *github.properties* com o seguinte conteúdo:
+
+```bash
+USER = manoelneto83
+TOKEN = obter na doc da phoebus
+```
 Após isso basta adicionar a dependência no build.gradle.kts do modulo (app):
 
 ```bash
